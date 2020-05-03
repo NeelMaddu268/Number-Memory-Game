@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Neel's Number Memory Game</title>
+  </head>
+  <body>
+    <h1>Number Memory Game - Remember the numbers given</h1>
+    <h2 id = "desc" style="display:none">
+      Please enter the number pattern in the text box and submit your answer.
+    </h2>
+
+    <div id="inputArea" style="display:none">
+      <input type="text" id="text" onkeypress="return isNumber(event)"  placeholder="Enter your answer here" />
+      <input type="submit" id = "Btn" onclick="after()" value="submit" />
+    </div>
+
+    <button id="again" onclick="location.reload(true);" style="display:none">
+      Play Again
+    </button>
+    <div id="space" style="font-size:90px"></div>
+
+    <script src="save.js"></script>
+  </body>
+</html>
