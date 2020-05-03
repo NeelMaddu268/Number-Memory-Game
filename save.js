@@ -1,13 +1,18 @@
+var MyTimer;
 var space = document.getElementById("space");
 var myArr = [];
-var j = 0;
+var j = -1;
 var timerLevel = 300;
+var howManyNumbers = 5;
 
-for (var i = 0; i < 5; i++) {
+function start(){
+    document.getElementById("start").style.display = "none";
+for (var i = 0; i < howManyNumbers; i++) {
   myArr[i] = getRandomIntInclusive();
 }
 
-var MyTimer = setInterval(display, timerLevel);
+MyTimer = setInterval(display, timerLevel);
+}
 
 function randomColor() {
   return (
@@ -16,19 +21,22 @@ function randomColor() {
 }
 
 function display() {
-  space.textContent = myArr[j];
-  space.style.color = randomColor();
   j++;
+    
+    
   if (j > myArr.length - 1) {
     clearInterval(MyTimer);
 
-    document.getElementById("desc").style.display = "block";
+    document.getElementById("desc").style.display = "none";
     document.getElementById("inputArea").style.display = "block";
     document.getElementById("text").focus();
-    setTimeout(function() {
       space.textContent = "";
-    }, 1000);
+    
   }
+    else{
+        space.textContent = myArr[j];
+  space.style.color = randomColor();
+    }
 }
 
 function getRandomIntInclusive() {
@@ -45,7 +53,7 @@ function after() {
     alert("Sorry, better luck next time!");
   }
   document.getElementById("inputArea").style.display = "none";
-  document.getElementById("desc").style.display = "none";
+  //document.getElementById("desc").style.display = "none";
   document.getElementById("again").style.display = "block";
 }
 
